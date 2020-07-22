@@ -27,16 +27,20 @@
 %	exitflag Rückgabewert 1 falls Iteration Toleranzbedingung erfüllt hat
 %            ansonsten 0
 %
+
 function [x, fval, exitflag] = newton(f, x0, tol, nmax)
 	exitflag = 0; %Not needed
 	x = zeros(size(x0, 1), nmax);
 	x(:, 1) = x0;
-	%... TODO
-end
-
-function ret = euclidean_length(vec)
-	ret = 0;
-	for i = 1:max(size(vec))
-		ret += vec(i) ^ 2;
-	ret = sqrt(ret);
+	k = 1;
+	[fval, J] = f(x(:, k));
+	k++;
+	x(:, k) = x0 - J \ fval;
+	while k <= nmax && norm(fval) + norm(x(:, k - 1) - x(:, k - 2) < tol)
+		[fval, J] = f(x(:, k));
+		k++;
+		x(:, k) = x0 - J \ fval; % a * b = c
+	end
+	x = x(:, end);
+	[fval, ~] = f(x);
 end
