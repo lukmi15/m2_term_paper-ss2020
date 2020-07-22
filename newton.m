@@ -30,16 +30,15 @@
 
 function [x, fval, exitflag] = newton(f, x0, tol, nmax)
 	exitflag = 0; %Not needed
-	x = zeros(size(x0, 1), nmax);
-	x(:, 1) = x0;
+	x = x0;
 	k = 1;
 	[fval, J] = f(x(:, k));
 	k++;
-	x(:, k) = x0 - J \ fval;
-	while k <= nmax && norm(fval) + norm(x(:, k - 1) - x(:, k - 2) < tol)
+	x(:, k) = x(:, k - 1) - J \ fval;
+	while k <= nmax && norm(fval) + norm(x(:, k) - x(:, k - 1)) >= tol
 		[fval, J] = f(x(:, k));
 		k++;
-		x(:, k) = x0 - J \ fval; % a * b = c
+		x(:, k) = x(:, k - 1) - J \ fval;
 	end
 	x = x(:, end);
 	[fval, ~] = f(x);
