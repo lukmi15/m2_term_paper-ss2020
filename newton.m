@@ -28,6 +28,9 @@
 %            ansonsten 0
 %
 
+%Solving f_chem for the M2 term paper
+%Author(s)			: Lukas Mirow
+
 function [x, fval, exitflag] = newton(f, x0, tol, nmax)
 	exitflag = 0; %Not needed
 	x = x0;

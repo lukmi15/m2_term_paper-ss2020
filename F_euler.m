@@ -1,5 +1,3 @@
-#!/usr/bin/octave-cli
-
 %F_euler implementation for M2 term paper
 %Author(s)			: Lukas Mirow
 %Date of creation	: 7/3/2020

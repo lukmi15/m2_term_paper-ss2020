@@ -1,5 +1,3 @@
-#!/usr/bin/octave-cli
-
 %Euler
 %Author(s)			: Lukas Mirow
 %Date of creation	: 5/12/2020

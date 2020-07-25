@@ -1,5 +1,3 @@
-#!/usr/bin/octave-cli
-
 %Implementation of f_chem_jac for M2 term paper
 %Author(s)			: Lukas Mirow
 %Date of creation	: 7/22/2020
