@@ -25,6 +25,6 @@ end
 
 [sol_impl_euler_steps, sol_impl_euler_values] = impl_euler(@impl_something_f, tspan, y0, n, @f_chem_jac, tol, nmax)
 [sol_impl_trape_steps, sol_impl_trape_values] = impl_trapez(@impl_something_f, tspan, y0, n, @f_chem_jac, tol, nmax)
-% assert(all(sol_impl_euler_values == sol_impl_trape_steps));
+% % assert(all(sol_impl_euler_values == sol_impl_trape_steps));
 % assert(all(abs(sol_impl_euler_values - sol_impl_trape_values) < tol));
 % printf('Done! \\(")/\n');
