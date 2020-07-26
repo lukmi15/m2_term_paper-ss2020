@@ -11,7 +11,12 @@ tspan = [0, 1];
 tol = 1e-6;
 nmax = Inf;
 ns = 10 .^ (1:4);
-sol = @(x) e ^ x;
+sol = @(x) exp(x);
+
+euler_errors = calc_euler_errors(f, tspan, y0, ns, df, tol, nmax, sol);
+trapez_errors = calc_trapez_errors(f, tspan, y0, ns, df, tol, nmax, sol);
+plot(ns, euler_errors, trapez_errors);
+input("Press any key to continue");
 
 function numerical_function_errors = calc_numerical_function_errors(f, tspan, y0, ns, df, tol, nmax, sol, numerical_function_handle)
 	numerical_function_errors = zeros(size(ns));
@@ -46,8 +51,3 @@ function plot(n, euler_errors, trapez_errors)
 	loglog(n, trapez_errors, "-", "DisplayName", "Euler");
 	hold off
 end
-
-euler_errors = calc_euler_errors(f, tspan, y0, ns, df, tol, nmax, sol);
-trapez_errors = calc_trapez_errors(f, tspan, y0, ns, df, tol, nmax, sol);
-plot(ns, euler_errors, trapez_errors);
-input("Press any key to continue");
