@@ -16,6 +16,7 @@ sol = @(x) exp(x);
 euler_errors = calc_euler_errors(f, tspan, y0, ns, df, tol, nmax, sol);
 trapez_errors = calc_trapez_errors(f, tspan, y0, ns, df, tol, nmax, sol);
 plot(ns, euler_errors, trapez_errors);
+input("Press any key to continue");
 
 function numerical_function_errors = calc_numerical_function_errors(f, tspan, y0, ns, df, tol, nmax, sol, numerical_function_handle)
 	numerical_function_errors = zeros(size(ns));
@@ -47,8 +48,6 @@ function plot(n, euler_errors, trapez_errors)
 	title("Absolute Fehler Euler und Trapez")
 	xlabel("n")
 	ylabel("e_abs")
-	loglog(n, trapez_errors, "-", "DisplayName", "Trapez");
+	loglog(n, trapez_errors, "-", "DisplayName", "Euler");
 	hold off
 end
-
-

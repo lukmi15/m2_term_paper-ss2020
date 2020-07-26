@@ -1,5 +1,3 @@
-% Bearbeiter_A = Fabian Rod
-
 function [F] = fd_nonlintime(t,u)
     %% Parameter [1-8]
     d       = 0.3;      %% µm

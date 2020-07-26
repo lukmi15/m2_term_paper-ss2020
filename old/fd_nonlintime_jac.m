@@ -1,5 +1,3 @@
-% Bearbeiter_A = Fabian Rod
-
 function [J] = fd_nonlintime_jac(t,u)
     %% Parameter [1-8]
     d       = 0.3;      %% µm
@@ -10,7 +8,7 @@ function [J] = fd_nonlintime_jac(t,u)
     SL      = 0.1;      %% 10 cm/s => 0,1 µm/µs
     SR      = 1000;     %% 1e+5 cm/s => 1000 µm/µs
     
-    N = length(u)-1;
+    N = length(u);
     k = k1+k2*ND; %% k berechnen
     h = (d-0)/N;  %% Schritweite
     
@@ -21,7 +19,7 @@ function [J] = fd_nonlintime_jac(t,u)
     c = (2 + (k*h^2)/D)*(-1);
     
     %% Anpassung der Größe N + 1
-    N = N+1;
+    N = N;
     %% Vektoren
     leftVec = ones(N,1);
     rightVec = ones(N,1);
